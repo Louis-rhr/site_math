@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MathExos - Accueil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>MathExos</h1>
+    <nav class="nav-horizontal">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="exercices.html">Exercices</a></li>
+        <li><a href="corriges.html">Corrigés</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="videos.html">Vidéos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+   <main>
+    <section class="quiz-container">
+      <h2>Quiz par niveau</h2>
+
+      <div class="quiz-level">
+        <h3>6ème</h3>
+        <p><strong>Combien font 7 × 6 ?</strong></p>
+        <ul>
+          <li>36</li>
+          <li>42 ✅</li>
+          <li>48</li>
+        </ul>
+      </div>
+
+      <div class="quiz-level">
+        <h3>5ème</h3>
+        <p><strong>Quel est le PGCD de 24 et 36 ?</strong></p>
+        <ul>
+          <li>6</li>
+          <li>12 ✅</li>
+          <li>18</li>
+        </ul>
+      </div>
+
+      <div class="quiz-level">
+        <h3>4ème</h3>
+        <p><strong>Quel est le développement de (x + 3)² ?</strong></p>
+        <ul>
+          <li>x² + 6x + 9 ✅</li>
+          <li>x² + 3x + 9</li>
+          <li>x² + 9</li>
+        </ul>
+      </div>
+
+      <div class="quiz-level">
+        <h3>3ème</h3>
+        <p><strong>Résoudre : 3x - 5 = 10</strong></p>
+        <ul>
+          <li>x = 3</li>
+          <li>x = 5</li>
+          <li>x = 5 ✅</li>
+        </ul>
+      </div>
+
+      <div class="quiz-level">
+        <h3>2nde</h3>
+        <p><strong>Quelle est la forme canonique de x² - 4x + 1 ?</strong></p>
+        <ul>
+          <li>(x - 2)² - 3 ✅</li>
+          <li>(x - 4)² + 1</li>
+          <li>(x + 2)² - 3</li>
+        </ul>
+      </div>
+
+      <div class="quiz-level">
+        <h3>1ère</h3>
+        <p><strong>Quelle est la dérivée de f(x) = 3x² - 2x + 1 ?</strong></p>
+        <ul>
+          <li>6x - 2 ✅</li>
+          <li>3x - 2</li>
+          <li>6x + 2</li>
+        </ul>
+      </div>
+
+      <div class="quiz-level">
+        <h3>Terminale</h3>
+        <p><strong>Une fonction f est définie par f(x) = ln(x² + 1). Quelle est sa dérivée ?</strong></p>
+        <ul>
+          <li>2x / (x² + 1) ✅</li>
+          <li>ln(2x + 1)</li>
+          <li>1 / (x² + 1)</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const quizLevels = document.querySelectorAll('.quiz-level');
+
+    quizLevels.forEach(level => {
+      const answers = level.querySelectorAll('li');
+
+      let correctAnswer = null;
+
+      // Étape 1 : détecte la bonne réponse (celle qui contient "✅")
+      answers.forEach(answer => {
+        if (answer.textContent.includes('✅')) {
+          correctAnswer = answer;
+          answer.setAttribute('data-correct', 'true');
+
+          // Supprime "✅" visuellement
+          answer.textContent = answer.textContent.replace('✅', '').trim();
+        }
+      });
+
+      // Étape 2 : ajoute l'écouteur de clic
+      answers.forEach(answer => {
+        answer.addEventListener('click', () => {
+          if (level.classList.contains('answered')) return;
+
+          level.classList.add('answered');
+
+          answers.forEach(a => {
+            if (a.getAttribute('data-correct') === 'true') {
+              a.classList.add('correct');
+            } else {
+              a.classList.add('incorrect');
+            }
+          });
+        });
+      });
+    });
+  });
+</script>
+</html>
