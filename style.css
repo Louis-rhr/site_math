@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+header {
+  background-color: #004080;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* STYLE DE BASE COMMUN */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* MENU HORIZONTAL (par défaut) */
+.nav-horizontal ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-horizontal a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* MENU VERTICAL (colonne, centré, noir) */
+.nav-vertical ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-vertical a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+main {
+  padding: 40px;
+  text-align: center;
+}
+
+footer {
+  background-color: #ccc;
+  text-align: center;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
